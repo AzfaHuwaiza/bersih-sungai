@@ -1,0 +1,20 @@
+{% extends 'sungai_tasikmalaya/layout/main.html' %}
+
+<!-- title -->
+{% block title %} Edit Profil {% endblock title %}
+
+<!-- Start Content -->
+{% block content %}
+<h1>Edit Profile</h1>
+<form method="post">
+  {% csrf_token %}
+  <h3>Informasi Pengguna</h3>
+  {{ user_form.as_p }}
+
+  <h3>Informasi Tambahan</h3>
+  {{ profile_form.as_p }}
+
+  <button type="submit">Update Profile</button>
+</form>
+<a href="{% url 'my_profile' %}">Kembali</a>
+{% endblock content %}

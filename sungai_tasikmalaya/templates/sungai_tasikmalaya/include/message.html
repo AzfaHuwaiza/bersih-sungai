@@ -1,0 +1,10 @@
+<!-- message -->
+{% block messages %}
+
+<!-- isi message -->
+{% if messages %} {% for message in messages %}
+<div>{{ message }}</div>
+{% endfor %} {% endif %}
+
+<!-- endblock message -->
+{% endblock messages %}

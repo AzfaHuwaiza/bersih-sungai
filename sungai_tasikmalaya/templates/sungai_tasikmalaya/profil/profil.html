@@ -1,0 +1,23 @@
+{% extends 'sungai_tasikmalaya/layout/main.html' %}
+
+<!-- title -->
+{% block title %} Profil {% endblock title %}
+
+<!-- Start Content -->
+{% block content %}
+<h1>Profil Saya</h1>
+<p><strong>Username:</strong> {{ profile.user.username }}</p>
+<p><strong>Email:</strong> {{ profile.user.email }}</p>
+<p><strong>Nama Depan:</strong> {{ profile.user.first_name }}</p>
+<p><strong>Nama Belakang:</strong> {{ profile.user.last_name }}</p>
+<p><strong>Alamat:</strong> {{ profile.alamat }}</p>
+<p><strong>Tanggal Lahir:</strong> {{ profile.tanggal_lahir }}</p>
+<p><strong>No HP:</strong> {{ profile.no_hp }}</p>
+<p><strong>Instagram:</strong> <a href="https://www.instagram.com/{{ profile.instagram }}" target="_blank">{{ profile.instagram }}</a></p>
+<p><strong>TikTok:</strong> <a href="{{ profile.tiktok }}">{{ profile.tiktok }}</a></p>
+<p><strong>X (Twitter):</strong> <a href="{{ profile.x }}">{{ profile.x }}</a></p>
+
+<a href="{% url 'edit_profile' %}">ubah</a>
+|
+<a href="{% url 'home' %}">back home</a>
+{% endblock content %}

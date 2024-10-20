@@ -1,0 +1,15 @@
+{% extends 'sungai_tasikmalaya/layout/main.html' %}
+
+<!-- title -->
+{% block title %} Login {% endblock title %}
+
+<!-- Start Content -->
+{% block content %}
+<h1>Login</h1>
+<form method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Login</button>
+  <p>Belum punya akun? <a href="{% url 'register' %}">Daftar di sini</a></p>
+</form>
+<a href="{% url 'admin:index' %}">admin page</a>
+{% endblock content %}

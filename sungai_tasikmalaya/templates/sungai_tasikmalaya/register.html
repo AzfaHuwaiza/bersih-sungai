@@ -1,0 +1,21 @@
+{% extends 'sungai_tasikmalaya/layout/main.html' %}
+
+<!-- title -->
+{% block title %} Registrasi {% endblock title %}
+
+<!-- Start Content -->
+{% block content %}
+
+<h1>Registrasi</h1>
+
+<!-- message -->
+{% block messages %} {% endblock messages %}
+
+<form method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <!-- Render form menggunakan Django -->
+  <button type="submit">Daftar</button>
+</form>
+<p>Sudah punya akun? <a href="{% url 'login' %}">Login di sini</a></p>
+
+{% endblock content %}
