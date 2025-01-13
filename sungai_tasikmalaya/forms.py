@@ -66,12 +66,20 @@ class UserProfileForm(forms.ModelForm):
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
-        if User.objects.filter(email=email).exists():
+        user = self.instance  # Mengacu pada user yang sedang diedit
+        if User.objects.filter(email=email).exclude(pk=user.pk).exists():
             raise forms.ValidationError('Email ini sudah digunakan. Silakan gunakan email lain.')
         return email
 
+
 class ProfileForm(forms.ModelForm):
+    alamat = forms.CharField(required=False)
+    tanggal_lahir = forms.DateField(required=False)
+    no_hp = forms.CharField(required=False)
+    instagram = forms.CharField(required=False)
+    tiktok = forms.CharField(required=False)
+    x = forms.CharField(required=False)
+
     class Meta:
         model = Profile
         fields = ['alamat', 'tanggal_lahir', 'no_hp', 'instagram', 'tiktok', 'x']
-
