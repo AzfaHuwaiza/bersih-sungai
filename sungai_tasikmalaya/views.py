@@ -28,6 +28,9 @@ def register_view(request):
 
 # View Login / Masuk
 def login_view(request):
+    if request.user.is_authenticated:
+            return redirect('home')
+
     if request.method == 'POST':
         form = CustomLoginForm(request, data=request.POST)
         if form.is_valid():
